@@ -15,7 +15,7 @@ const returnClarifaiRequestOptions = (imageUrl) => {
   const USER_ID = 'softdeveloper23';
   const APP_ID = 'facefinder';
   // Change these to whatever model and image URL you want to use
-  const MODEL_ID = 'face-detection';
+  //const MODEL_ID = 'face-detection';
   const IMAGE_URL = imageUrl;
 
   const raw = JSON.stringify({
@@ -82,7 +82,7 @@ class App extends Component {
       .predict(
         'face-detection',
         this.state.input)*/
-    fetch("https://api.clarifai.com/v2/models/" + 'face-detection' + "/outputs", returnClarifaiRequestOptions(this.state.input))
+    fetch(`https://api.clarifai.com/v2/models/face-detection/outputs`, returnClarifaiRequestOptions(this.state.input))
       .then(response => response.json())
 
       .then(response => this.displayFaceBox(this.calculateFaceLocation(response)))
